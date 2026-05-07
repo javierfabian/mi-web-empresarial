@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Misiones Advance desarrolla experiencias web con IA y automatización para atraer clientes y escalar negocios." />
+<title>Misiones Advance | Web + IA para Negocios</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:#0f172a;
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
+  background-image: url('asset/imagen 2 body.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: slideshow 24s infinite ease-in-out;
+}
+
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background: linear-gradient(180deg, rgba(8, 15, 32, 0.75), rgba(2, 8, 24, 0.9));
+  pointer-events:none;
+  z-index:-1;
+}
+
+header {
+  position:sticky;
+  top:0;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:18px 32px 18px 240px;
+  min-height:100px;
+  background-image: url("asset/1.png"), linear-gradient(135deg,#020617,#1e293b);
+  background-repeat: no-repeat, no-repeat;
+  background-position: left 28px center, center center;
+  background-size: 160px auto, cover;
+  background-color: rgba(2, 6, 23, 0.8);
+  backdrop-filter: blur(15px);
+  z-index:1000;
+}
+
+.brand {
+  font-size:1.05rem;
+}
+
+nav {
+  display:flex;
+  gap:22px;
+  align-items:center;
+}
+
+nav a {
+  color:#d3d9e0;
+  text-decoration:none;
+  font-weight:500;
+}
+
+nav a:hover {
+  color:white;
+}
+
+.hero {
+  min-height:78vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:50px 30px 45px;
+  background: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+.hero-content {
+  max-width:640px;
+  text-align:center;
+}
+
+.hero p {
+  color:#d1d5db;
+  margin-top:18px;
+  line-height:1.8;
+  font-size:1.05rem;
+}
+
+.hero-quote {
+  margin-top:14px;
+  color:#e2e8f0;
+  font-size:1rem;
+}
+
+.hero-badges {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin-top:18px;
+}
+
+.hero-badges span {
+  background:rgba(255,255,255,0.08);
+  color:#f8fafc;
+  padding:10px 16px;
+  border-radius:999px;
+  font-size:0.95rem;
+}
+
+.btn {
+  margin-top:30px;
+  padding:14px 26px;
+  background:#16a34a;
+  border-radius:12px;
+  text-decoration:none;
+  color:white;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  line-height:1.1;
+  box-shadow:0 18px 40px rgba(22,163,74,0.18);
+  transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
+}
+
+.btn:hover {
+  transform:translateY(-2px);
+  background:#22c55e;
+  box-shadow:0 24px 50px rgba(22,163,74,0.28);
+}
+
+.btn-alt {
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.32);
+  padding:14px 26px;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  line-height:1.1;
+}
+
+.btn-alt:hover {
+  background:rgba(255,255,255,0.08);
+  color:#fff;
+  transform: translateY(-1px);
+}
+
+.hero-actions {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:14px;
+  margin-top:30px;
+}
+
+.hero h1 {
+  font-size:3.2rem;
+  animation:fadeIn 1.5s ease;
+  line-height:1.05;
+  text-shadow:0 16px 55px rgba(0,0,0,0.18);
+}
+
+.hero h1 span {
+  color:#22c55e;
+}
+
+.hero-subtitle {
+  margin-top:18px;
+  color:#cbd5e1;
+  font-size:1.05rem;
+  max-width:560px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.grid .card {
+  opacity:0;
+  transform:translateY(16px);
+  animation:fadeInUp .8s ease forwards;
+}
+
+.grid .card:nth-child(1) { animation-delay:0.05s; }
+.grid .card:nth-child(2) { animation-delay:0.12s; }
+.grid .card:nth-child(3) { animation-delay:0.18s; }
+.grid .card:nth-child(4) { animation-delay:0.22s; }
+.grid .card:nth-child(5) { animation-delay:0.26s; }
+.grid .card:nth-child(6) { animation-delay:0.3s; }
+
+.service-card {
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.service-card strong {
+  display:block;
+  font-size:1.1rem;
+}
+
+.tool-list {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+  margin-top:18px;
+}
+
+.tool-item {
+  padding:18px 16px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+  text-align:center;
+}
+
+.tool-item strong {
+  display:block;
+  margin-bottom:10px;
+  font-size:1rem;
+}
+
+.tool-item p {
+  margin:0;
+  color:#cbd5e1;
+  font-size:0.95rem;
+}
+
+.portfolio-card p {
+  color:#d1d5db;
+  line-height:1.6;
+}
+
+.feature-list {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:24px;
+}
+
+.feature-item {
+  padding:20px;
+  background:rgba(255,255,255,0.05);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 12px 30px rgba(0,0,0,0.16);
+}
+
+.feature-item strong {
+  display:block;
+  margin-bottom:10px;
+  font-size:1.05rem;
+}
+
+section {
+  padding:60px 30px;
+  background: rgba(15, 23, 42, 0.34);
+  backdrop-filter: blur(6px);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:22px;
+  margin:0 16px 24px;
+}
+
+.section-title {
+  font-size:2rem;
+  margin-bottom:24px;
+  letter-spacing:.02em;
+}
+
+.testimonial-card {
+  position:relative;
+  overflow:hidden;
+}
+
+.testimonial-card::before {
+  content:'"';
+  position:absolute;
+  top:16px;
+  left:16px;
+  font-size:5rem;
+  color:rgba(34,197,94,0.12);
+}
+
+.testimonial-card p {
+  margin-top:18px;
+  color:#cbd5e1;
+}
+
+.process-card {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.process-card strong {
+  font-size:1.1rem;
+}
+
+.cta-bar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:40px 32px;
+  background: rgba(34, 197, 94, 0.08);
+  border:1px solid rgba(34,197,94,0.18);
+  border-radius:22px;
+  color:#f8fafc;
+}
+
+.cta-bar h2 {
+  margin:0;
+  font-size:2rem;
+}
+
+.cta-bar p {
+  margin:10px 0 0;
+  color:#d1d5db;
+}
+
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.contact-card {
+  padding:28px;
+  background:rgba(15,23,42,0.52);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.06);
+}
+
+.contact-card h3 {
+  margin-top:0;
+}
+
+.contact-card p {
+  margin:14px 0 0;
+  color:#d1d5db;
+}
+
+.contact-form {
+  display:grid;
+  gap:16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width:100%;
+  padding:16px 18px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.06);
+  color:#f8fafc;
+  font-size:1rem;
+  outline:none;
+}
+
+.contact-form textarea {
+  min-height:160px;
+  resize:none;
+}
+
+.footer {
+  padding:32px 30px;
+  text-align:center;
+  color:#94a3b8;
+  font-size:.95rem;
+}
+
+.footer a {
+  color:#d1d5db;
+  text-decoration:none;
+}
+
+.footer a:hover {
+  color:#fff;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card {
+  background: rgba(30, 41, 59, 0.42);
+  padding:20px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.05);
+  transition:0.3s, border .3s ease;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+}
+
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+}
+
+@media (max-width: 720px) {
+  header {
+    padding:18px 20px 18px 160px;
+    background-position:left 20px center, center center;
+    background-size:100px auto, cover;
+  }
+  .hero {
+    padding:30px 20px;
+  }
+  .hero-content {
+    text-align:center;
+  }
+  .contact-grid {
+    grid-template-columns:1fr;
+  }
+  .cta-bar {
+    flex-direction:column;
+    align-items:flex-start;
+    padding:28px 20px;
+  }
+  .cta-bar h2 {
+    font-size:1.6rem;
+  }
+  section {
+    margin:0 10px 18px;
+    padding:40px 20px;
+  }
+}
+
+@keyframes slideshow {
+  0%, 100% { background-image: url('asset/imagen 2 body.jpg'); }
+  33% { background-image: url('asset/imagen 3.jpg'); }
+  66% { background-image: url('asset/imagen 4.jpg'); }
+}
+
+@keyframes fadeInUp {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<header aria-label="Encabezado principal">
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#portfolio">Portfolio</a>
+    <a class="btn-alt" href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Automatizo <span>Negocios</span> con Web + IA</h1>
+    <p>Desarrollo sistemas que generan clientes automáticamente</p>
+    <p class="hero-quote">Trabajo con ideas claras, diseño humano y tecnología que conecta con tus clientes.</p>
+    <p class="hero-subtitle">Si buscas crecer con una presencia digital moderna, eficiente y lista para convertir, estás en el lugar correcto.</p>
+    <div class="hero-badges">
+      <span>Humanizado</span>
+      <span>Impacto real</span>
+      <span>Diseño con sentido</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn" href="https://wa.me/+543764501743">Trabajemos juntos</a>
+    </div>
+  </div>
+</section>
+
+<section class="hero-highlights">
+  <h2 class="section-title">Un enfoque que suma</h2>
+  <div class="grid">
+    <div class="card">Estrategias web con voz propia</div>
+    <div class="card">Experiencias pensadas para tus clientes</div>
+    <div class="card">Tecnología que acompaña tu crecimiento</div>
+  </div>
+</section>
+
+<section class="why-choose">
+  <h2 class="section-title">Por qué elegirnos</h2>
+  <div class="feature-list">
+    <div class="feature-item">
+      <strong>Más ventas con menos esfuerzo</strong>
+      <p>Diseños y embudos creados para convertir visitas en clientes sin complicaciones.</p>
+    </div>
+    <div class="feature-item">
+      <strong>Automatización que libera tiempo</strong>
+      <p>Integraciones inteligentes para que tu negocio funcione aun cuando no estás trabajando.</p>
+    </div>
+    <div class="feature-item">
+      <strong>Calidad profesional rápida</strong>
+      <p>Trabajo ágil, comunicación fluida y entregas con enfoque en resultado.</p>
+    </div>
+  </div>
+</section>
+
+<section id="proceso">
+  <h2 class="section-title">Nuestro proceso</h2>
+  <div class="grid">
+    <div class="card process-card">
+      <strong>1. Entendemos tu negocio</strong>
+      <p>Analizamos tus objetivos y tu cliente para diseñar soluciones que vendan.</p>
+    </div>
+    <div class="card process-card">
+      <strong>2. Construimos con IA</strong>
+      <p>Desarrollamos sitios, funnels y automatizaciones con datos reales y diseño estratégico.</p>
+    </div>
+    <div class="card process-card">
+      <strong>3. Escalamos resultados</strong>
+      <p>Optimización continua para que cada campaña convierta más y mejor.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2 class="section-title">Lo que dicen mis clientes</h2>
+  <div class="grid">
+    <div class="card testimonial-card">
+      <strong>“El trabajo fue rápido, claro y con resultado real. Nuestro tráfico y ventas crecieron desde la primera semana.”</strong>
+      <p>- Alejandra, Ecommerce</p>
+    </div>
+    <div class="card testimonial-card">
+      <strong>“La web quedó profesional y el embudo de ventas nos ahorra horas cada día. Muy recomendable.”</strong>
+      <p>- Martín, Agencia</p>
+    </div>
+    <div class="card testimonial-card">
+      <strong>“Sumaron ideas potentes y ejecutaron todo con excelente comunicación. Es justo lo que buscábamos.”</strong>
+      <p>- Laura, Servicios</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bar">
+  <div>
+    <h2>¿Listo para impulsar tu negocio?</h2>
+    <p>Lleva tu web, tus campañas y tus procesos al nivel de profesional que tu marca merece.</p>
+  </div>
+  <a class="btn" href="https://wa.me/+543764501743">Hablar ahora</a>
+</section>
+
+<section>
+<h2 class="section-title">Resultados</h2>
+<div class="grid">
+  <div class="card">+300% alcance en campañas</div>
+  <div class="card">Automatización de ventas</div>
+  <div class="card">Integración IA aplicada</div>
+</div>
+<a class="btn-alt" href="https://wa.me/+543764501743">Ver más casos</a>
+</section>
+
+<section id="servicios">
+<h2 class="section-title">Servicios</h2>
+<div class="grid">
+  <div class="card service-card">
+    <strong>Landing pages con conversión</strong>
+    <p>Páginas optimizadas para captar leads y convertir tráfico en clientes desde el primer clic.</p>
+  </div>
+  <div class="card service-card">
+    <strong>Campañas Ads efectivas</strong>
+    <p>Estrategias de anuncios en Google, Meta y redes que impulsan tu retorno con claridad.</p>
+  </div>
+  <div class="card service-card">
+    <strong>Automatización con IA</strong>
+    <p>Flujos inteligentes que entregan mensajes, nutren leads y aumentan ventas sin supervisión constante.</p>
+  </div>
+</div>
+</section>
+
+<section class="tech-stack">
+  <h2 class="section-title">Herramientas y enfoque</h2>
+  <p class="hero-subtitle">Trabajo con tecnologías y procesos enfocados en rendimiento, escalabilidad y resultados reales.</p>
+  <div class="tool-list">
+    <div class="tool-item">
+      <strong>Web moderna</strong>
+      <p>Diseño responsive, rápido y centrado en conversión.</p>
+    </div>
+    <div class="tool-item">
+      <strong>Automatizaciones</strong>
+      <p>Gestión de leads, CRM y workflows para ahorrar tiempo.</p>
+    </div>
+    <div class="tool-item">
+      <strong>Campañas</strong>
+      <p>Ads con foco en leads y ventas, siempre medibles.</p>
+    </div>
+    <div class="tool-item">
+      <strong>UX + Copy</strong>
+      <p>Textos claros y experiencia fluida que guían la acción.</p>
+    </div>
+    <div class="tool-item">
+      <strong>Optimización</strong>
+      <p>Mejoras continuas basadas en datos y comportamiento real.</p>
+    </div>
+    <div class="tool-item">
+      <strong>Soporte</strong>
+      <p>Comunicación directa y entregas con enfoque profesional.</p>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+<h2 class="section-title">Portfolio</h2>
+<div class="grid">
+  <div class="card portfolio-card">
+    <div class="portfolio-image" style="background-image:url('asset/imagen 2 body.jpg');"></div>
+    <strong>Dolce Vitta</strong>
+    <p>Landing con estrategia visual y conversión pensada para moda premium.</p>
+    <a class="btn-alt" href="https://dolcevitta-azure.vercel.app/" target="_blank">Ver proyecto</a>
+  </div>
+  <div class="card portfolio-card">
+    <div class="portfolio-image" style="background-image:url('asset/imagen 3.jpg');"></div>
+    <strong>Tienda Ropa</strong>
+    <p>Experiencia de compra limpia enfocada en ventas rápidas y retención.</p>
+    <a class="btn-alt" href="https://proyecto-tienda-de-ropa.vercel.app/" target="_blank">Ver proyecto</a>
+  </div>
+  <div class="card portfolio-card">
+    <div class="portfolio-image" style="background-image:url('asset/imagen 4.jpg');"></div>
+    <strong>Blog</strong>
+    <p>Diseño moderno para contenido profesional y comunidad online.</p>
+    <a class="btn-alt" href="https://micvrfj.vercel.app/" target="_blank">Ver proyecto</a>
+  </div>
+</div>
+</section>
+
+<section id="contacto">
+<h2 class="section-title">Contacto</h2>
+<div class="contact-grid">
+  <div class="contact-card">
+    <h3>Hablemos de tu proyecto</h3>
+    <p>Respondo rápido por WhatsApp o te contacto en menos de 24 horas. Cuéntame tu idea y juntos la convertimos en resultados.</p>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/3764501743">Escríbeme</a></p>
+  </div>
+  <div class="contact-card">
+    <form class="contact-form" onsubmit="sendToWhatsApp(event)">
+      <input type="text" name="Nombre" placeholder="Tu nombre" required>
+      <input type="email" name="Email" placeholder="Tu email" required>
+      <textarea name="Mensaje" placeholder="Cuéntame tu proyecto" required></textarea>
+      <button class="btn" type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</div>
+</section>
+
+<footer class="footer">
+  <p>Misiones Advance · Desarrollo web + IA · Automatización de negocios</p>
+  <p><a href="#servicios">Servicios</a> · <a href="#portfolio">Portfolio</a> · <a href="#contacto">Contacto</a></p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/3764501743">💬</a>
+
+<script>
+function sendToWhatsApp(event) {
+  event.preventDefault();
+  const nombre = document.querySelector('input[name="Nombre"]').value;
+  const email = document.querySelector('input[name="Email"]').value;
+  const mensaje = document.querySelector('textarea[name="Mensaje"]').value;
+  const text = `Hola, soy ${nombre}. Mi email es ${email}. ${mensaje}`;
+  const url = `https://wa.me/3764501743?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
