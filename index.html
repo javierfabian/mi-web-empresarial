@@ -359,7 +359,7 @@ section {
 .contact-form input,
 .contact-form textarea {
   width:100%;
-  padding:16px 18px;
+  padding:16px 6px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,0.1);
   background:rgba(255,255,255,0.06);
@@ -435,20 +435,23 @@ section {
 
 @media (max-width: 720px) {
   header {
-    padding:18px 16px;
-    background-position:left 16px center, center center;
-    background-size:90px auto, cover;
-    min-height:80px;
+    padding:12px 16px;
+    background-position:center top, center center;
+    background-size:0 0, cover;
+    min-height:auto;
     flex-direction:column;
-    gap:12px;
+    gap:14px;
+    justify-content:center;
+    align-items:center;
   }
   header nav {
-    gap:16px;
+    gap:12px;
     flex-wrap:wrap;
     justify-content:center;
+    width:100%;
   }
   header nav a {
-    font-size:0.9rem;
+    font-size:0.85rem;
   }
   .hero {
     padding:30px 20px;
@@ -497,7 +500,7 @@ section {
   <nav>
     <a href="#servicios">Servicios</a>
     <a href="#portfolio">Portfolio</a>
-    <a class="btn-alt" href="#contacto">Contacto</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 </header>
 
